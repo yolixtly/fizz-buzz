@@ -1,0 +1,19 @@
+body {
+	background-color: mintcream;
+	margin:0 auto;
+	width: 60%;
+/*	border: 1px solid pink;*/
+	text-align: center;
+}
+h1{
+	color: dimgray ;
+	font-size: 3rem;
+	margin: 1rem;
+	
+}
+hr{
+	border: none;
+	background-color:aquamarine;
+	height: 1rem;
+	margin-top: 0;
+}
