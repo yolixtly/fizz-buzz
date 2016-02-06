@@ -16,7 +16,7 @@ for (var n = 1; n <= 100; n++) {
 } if (n % 5 === 0 && n % 3 === 0){
 		nuevo +=", FIZZ-BUZZ "
 }
-$("li").append(nuevo || n).css("color", "hotpink").css("width", "30rem").css("margin", "0 auto")
+$("li").append(nuevo || n + " ").css("color", "hotpink").css("width", "30rem").css("margin", "0 auto")
 }
 
 
