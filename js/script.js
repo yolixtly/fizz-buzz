@@ -1,4 +1,16 @@
-console.log("hello Yolix");
+// console.log("hello Yolix");
+
+for (var i = 1; i <= 100; i++) {
+	var hola = "";
+	if ((i % 3 === 0) && (i % 5 !== 0)) {
+		hola += " fizz " + "<br/>";
+	} else if ((i % 5 === 0) && (i % 3 !== 0)) {
+		hola += " buzz " + "<br/>";
+	} else if((i % 5 && i % 3) === 0){
+		hola += "FIZZ-BUZZ" + "<br/>";
+	}
+$("#secondTry").append(hola || i + " " + "<br/>");
+};
 
 
 // this one is working. 
@@ -15,9 +27,10 @@ for (var n = 1; n <= 100; n++) {
 		nuevo +=", buzz "
 } if (n % 5 === 0 && n % 3 === 0){
 		nuevo +=", FIZZ-BUZZ "
-}
-$("li").append(nuevo || n + " ").css("color", "hotpink").css("width", "30rem").css("margin", "0 auto")
-}
+};
+$("li").append(nuevo || n + " ").css("color", "hotpink").css("width", "30rem").css("margin", "0 auto");
+};
+
 
 
 // this one, continues the counting, but it doesnt accept a change on the while statement

@@ -41,3 +41,8 @@ p {
     color: #FF9800;
     margin: 1rem 0 1rem;
 }
+div {
+	border: 0.02rem solid hotpink;
+	color: navy;
+	
+}
