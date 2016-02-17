@@ -9,11 +9,11 @@ console.log("hello Yolix");
 		for (var i = 1; i <= userChoice; i++) {
 			// hola = ""; //as initially had it, it would have loged empty and do not run whats next
 			if ((i % 3 === 0) && (i % 5 !== 0)) {
-			hola += " fizz " + "<br/>";
+			hola += "<strong> fizz </strong>" + "<br/>";
 			} else if ((i % 5 === 0) && (i % 3 !== 0)) {
-			hola += " buzz " + "<br/>";
+			hola += "<strong> buzz </strong>" + "<br/>";
 			} else if((i % 5 && i % 3) === 0){
-			hola += "FIZZ-BUZZ" + "<br/>";
+			hola += "<strong> FIZZ-BUZZ </strong>" + "<br/>";
 			} else {
 				hola += i + "<br/>";
 			}	
@@ -21,7 +21,50 @@ console.log("hello Yolix");
 		return hola;
 	};
 
+// CODE TO MAKE SURE THE USER DOESNT INPUT a NaN and Decimals as well:
 
+		var inputValue = prompt("Please pick a number: ", +"");
+		// inputValue = parseInt(inputValue); 	
+
+		// If the number is NaN like ("five" instead of 5), then:
+		if (isNaN(inputValue)) { 
+			inputValue = prompt("Please pick a number instead of a word: ", +"");
+		} 
+
+		// If the number is not an integer like ("5.5" instead of 5), then:
+		while((inputValue % 1) != 0) {
+			inputValue = prompt("pick a number that has no decimals: ", +"");
+		}
+
+		//if input is an Integer then just run your game!!: 
+
+		$("#refactor").append("Playing Fizz-Buzz Game from 1 to " + inputValue + "<br/>");
+
+		//calling the function
+		$("#refactor").append(pickNumber(inputValue));
+		
+	
+	//END OF THE DECIMALS TRY
+
+
+
+/*// CODE TO MAKE SURE THE USER DOESNT INPUT a NaN.but what about decimals? 
+
+		var inputValue = prompt("Please pick a number: ", +"");
+		inputValue = parseInt(inputValue); 	
+
+		if (isNaN(inputValue)) { 
+			inputValue = prompt("Please pick a number: ", +"");
+		}
+
+		$("#refactor").append("Playing Fizz-Buzz Game from 1 to " + inputValue + "<br/>");
+
+		//calling the function
+		$("#refactor").append(pickNumber(inputValue));
+		
+	
+	//END OF THE DECIMALS TRY*/
+/*
 	// CODE TO MAKE SURE THE USER DOESNT INPUT DECIMALS. 
 
 		var inputValue;
@@ -36,7 +79,7 @@ console.log("hello Yolix");
 			}
 		}
 	
-	//END OF THE DECIMALS TRY
+	//END OF THE DECIMALS TRY*/
 
 	// CODE TO MAKE SURE THE USER DOESNT INPUT DECIMALS. using If conditional
 
