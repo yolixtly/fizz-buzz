@@ -5,13 +5,22 @@
   "main": "index.js",
   "scripts": {
     "mkdir": "mkdir build",
-    "build": "npm run clean && npm run mkdir && npm run build:html",
-    "watch": "npm run watch:html",
+    "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css",
+    "watch": "npm run watch:html & npm run watch:css",
     "clean": "rm -rf build",
     "build:html": "npm run clean:html && cp index.html build/",
     "watch:html": "npm run build:html && chokidar index.html -c 'npm run build:html'",
-    "clean:html": "rm -f build/index.html"
-  },
+    "clean:html": "rm -f build/index.html",
+    "build:css": "npm run build:css:unminified && npm run build:css:minified",
+    "watch:css": "npm run watch:css:unminified & npm run watch:css:minified",
+    "clean:css": "npm run clean:css:unminified && npm run clean:css:minified",
+    "build:css:unminified": "npm run clean:css:unminified && lessc --source-map css/index.less build/css/index.css",
+    "watch:css:unminified": "npm run build:css:unminified && chokidar 'css/**/*.(css|less)' -c 'npm run build:css:unminified'",
+    "clean:css:unminified": "rm -f build/css/index.css build/css/index.css.map",
+    "build:css:minified": "npm run clean:css:minified && lessc --clean-css --source-map css/index.less build/css/index.min.css",
+    "watch:css:minified": "npm run build:css:minified && chokidar 'css/**/*.(css|less)' -c 'npm run build:css:minified'",
+    "clean:css:minified": "rm -f build/css/index.min.css build/css/index.min.css.map"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yolixtly/fizz-buzz.git"
@@ -23,6 +32,8 @@
   },
   "homepage": "https://github.com/yolixtly/fizz-buzz#readme",
   "devDependencies": {
-    "chokidar-cli": "^1.2.0"
+    "chokidar-cli": "^1.2.0",
+    "less": "^2.6.1",
+    "less-plugin-clean-css": "^1.5.1"
   }
 }

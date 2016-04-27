@@ -1,40 +1,29 @@
+@content-display : 0 auto;
+@text-center: center;
 body {
-	background-color: coral;
-	margin:0 auto;
+	background-color: mintcream;
+	margin:@content-display;
 	width: 60%;
-/*	border: 1px solid pink;*/
-	text-align: center;
+	text-align: @text-center;
 }
-h1{
-	color: dimgray ;
-	font-size: 3rem;
-	margin: 1rem;
-	
-}
-hr{
-	border: none;
-	background-color:aquamarine;
+
+hr {
+	border:none;
+	background-color: aquamarine;
 	height: 1rem;
 	margin-top: 0;
 }
 ul {
 	list-style-type: none;
 	width: 38rem;
-	/*border: 1px solid navy;*/
 	padding: 0;
-	margin: 0 auto;
+	margin: @content-display;
 	font-size: 1.5rem;
-	font-weight: 300;s
+	font-weight: 300;
 }
-
-
-
-
-
 p {
     text-align: right;
     width: 37rem;
-    /*border: 1px solid navy;*/
     padding: 0;
     font-size: 1rem;
     font-weight: 300;
@@ -43,6 +32,5 @@ p {
 }
 div {
 	border: 0.02rem solid hotpink;
-	color: navy;
-	
+	color: navy;	
 }
