@@ -44,24 +44,25 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
 	var $ = __webpack_require__(1);
 	var startTheGame = __webpack_require__(2);
 	
-	(function(){
-	console.log("hello Yolix");
+	(function () {
+		console.log("this is Fizz-buzz");
 	
-	//Refactor Challenged 
+		//Refactor Challenged
 	
-	runGame();
+		runGame();
 	
-	function runGame() {
-		$('#btn').click(function(){
-			startTheGame();
-			$('#userInput').val('');
-		});
-	
-	};
-	}());
+		function runGame() {
+			$('#btn').click(function () {
+				startTheGame();
+				$('#userInput').val('');
+			});
+		};
+	})();
 
 /***/ },
 /* 1 */
@@ -9915,6 +9916,8 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
 	var $ = __webpack_require__(1);
 	var pickNumber = __webpack_require__(3);
 	
@@ -9926,11 +9929,11 @@
 			inputValue = prompt("Please pick a number instead of a word: ", +"");
 		}
 		// If the number is not an integer like ("5.5" instead of 5), then:
-		while ((inputValue % 1) != 0) {
+		while (inputValue % 1 != 0) {
 			inputValue = prompt("pick a number that has no decimals: ", +"");
 		}
-		//if input is an Integer then just run your game!!: 
-		$("#refactor").html(''); 
+		//if input is an Integer then just run your game!!:
+		$("#refactor").html('');
 		$("#refactor").append("Playing Fizz-Buzz Game from 1 to " + inputValue + "<br/>");
 		//calling the function
 		$("#refactor").append(pickNumber(inputValue));
@@ -9942,22 +9945,21 @@
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+	
 	var $ = __webpack_require__(1);
 	
-	//rendering the list of numbers until the number picked by the user 
+	//rendering the list of numbers until the number picked by the user
 	function pickNumber(userChoice) {
 		var listOfNumbers = "";
 		for (var i = 1; i <= userChoice; i++) {
-			if ((i % 3 === 0) && (i % 5 !== 0)) {
+			if (i % 3 === 0 && i % 5 !== 0) {
 				listOfNumbers += "<strong> fizz </strong>" + "<br/>";
-			}
-			else if ((i % 5 === 0) && (i % 3 !== 0)) {
+			} else if (i % 5 === 0 && i % 3 !== 0) {
 				listOfNumbers += "<strong> buzz </strong>" + "<br/>";
-			}
-			else if ((i % 5 && i % 3) === 0) {
+			} else if ((i % 5 && i % 3) === 0) {
 				listOfNumbers += "<strong> FIZZ-BUZZ </strong>" + "<br/>";
-			}
-			else {
+			} else {
 				listOfNumbers += i + "<br/>";
 			}
 		}

@@ -2,7 +2,7 @@ var $ = require('jquery');
 var startTheGame = require('./view.js');
 
 (function(){
-console.log("hello Yolix");
+console.log("this is Fizz-buzz");
 
 //Refactor Challenged 
 
