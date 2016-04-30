@@ -9922,19 +9922,18 @@
 	var pickNumber = __webpack_require__(3);
 	
 	// CODE TO MAKE SURE THE USER DOESNT INPUT a NaN and Decimals as well:
-	function startTheGame() {
+	var startTheGame = function startTheGame() {
 		var inputValue = $('#userInput').val();
 		// If the number is NaN like ("five" instead of 5), then:
 		if (isNaN(inputValue)) {
 			inputValue = prompt("Please pick a number instead of a word: ", +"");
-		}
-		// If the number is not an integer like ("5.5" instead of 5), then:
+		};
 		while (inputValue % 1 != 0) {
 			inputValue = prompt("pick a number that has no decimals: ", +"");
 		}
-		//if input is an Integer then just run your game!!:
-		$("#refactor").html('');
+		$("#refactor").html(''); //clean everything before running the next;
 		$("#refactor").append("Playing Fizz-Buzz Game from 1 to " + inputValue + "<br/>");
+	
 		//calling the function
 		$("#refactor").append(pickNumber(inputValue));
 	};
@@ -9950,20 +9949,12 @@
 	var $ = __webpack_require__(1);
 	
 	//rendering the list of numbers until the number picked by the user
-	function pickNumber(userChoice) {
-		var listOfNumbers = "";
-		for (var i = 1; i <= userChoice; i++) {
-			if (i % 3 === 0 && i % 5 !== 0) {
-				listOfNumbers += "<strong> fizz </strong>" + "<br/>";
-			} else if (i % 5 === 0 && i % 3 !== 0) {
-				listOfNumbers += "<strong> buzz </strong>" + "<br/>";
-			} else if ((i % 5 && i % 3) === 0) {
-				listOfNumbers += "<strong> FIZZ-BUZZ </strong>" + "<br/>";
-			} else {
-				listOfNumbers += i + "<br/>";
-			}
-		}
-		return listOfNumbers;
+	var pickNumber = function pickNumber(userChoice) {
+	  var listNumber = "";
+	  for (var i = 1; i <= userChoice; i++) {
+	    listNumber += i % 3 === 0 && i % 5 !== 0 ? "<strong> fizz </strong>" + "<br/>" : i % 5 === 0 && i % 3 !== 0 ? "<strong> buzz </strong>" + "<br/>" : (i % 5 && i % 3) === 0 ? "<strong> FIZZ-BUZZ </strong>" + "<br/>" : i + "</br>";
+	  }
+	  return listNumber;
 	};
 	
 	module.exports = pickNumber;
